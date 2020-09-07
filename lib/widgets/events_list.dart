@@ -5,8 +5,9 @@ class EventsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListWheelScrollView(
-      itemExtent: 0.2 * MediaQuery.of(context).size.height,
+      itemExtent: 0.22 * MediaQuery.of(context).size.height,
       diameterRatio: 2,
+      
       children: <Widget>[
         EventsButton(eventName: 'Event Name', eventCategory: 'Category'),
         EventsButton(eventName: 'Event Name', eventCategory: 'Category'),
