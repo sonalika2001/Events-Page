@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:events_page/events_screen.dart';
+
 void main() {
   runApp(EventsPage());
 }

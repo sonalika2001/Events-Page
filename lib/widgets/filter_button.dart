@@ -24,8 +24,8 @@ class _FilterButtonState extends State<FilterButton> {
           widget.text,
           style: kFilterTextStyle,
         ),
-        textColor: isSelected ? Colors.black : Color(0xff77C7BE),
-        color: isSelected ? Color(0xff0FAB9B) : Colors.black,
+        textColor: isSelected ? Colors.black : kTextColor,
+        color: isSelected ? kShadowColor : Colors.black,
       ),
     );
   }
