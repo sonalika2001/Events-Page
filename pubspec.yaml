@@ -59,15 +59,15 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   fonts:
-    - family: Caveat
-      fonts:
-        - asset: fonts/Caveat-Regular.ttf
     - family: Acme
       fonts:
         - asset: fonts/Acme-Regular.ttf
     - family: Rajdhani
       fonts:
         - asset: fonts/Rajdhani-Medium.ttf
+    - family: Orbitron
+      fonts:
+        - asset: fonts/Orbitron-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
