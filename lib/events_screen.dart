@@ -14,11 +14,11 @@ class EventsScreen extends StatelessWidget {
       appBar: AppBar(
         elevation: 100,
         shadowColor: kShadowColor,
-        toolbarHeight: 0.1 * MediaQuery.of(context).size.height,
+        toolbarHeight: 0.09 * MediaQuery.of(context).size.height,
         backgroundColor: kDarkThemeContrast1,
         actions: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.symmetric(horizontal:15.0),
             child: GestureDetector(
               child: Icon(
                 Icons.arrow_back,

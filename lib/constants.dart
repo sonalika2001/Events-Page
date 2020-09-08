@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 const kFilterTextStyle = TextStyle(
-  fontSize: 22,
-  fontFamily: 'Caveat',
-  fontWeight: FontWeight.w200,
+  fontSize: 18,
+  fontFamily: 'Orbitron',
+  fontWeight: FontWeight.w400,
 );
 
 const kEventTextStyle = TextStyle(

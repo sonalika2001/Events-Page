@@ -20,9 +20,11 @@ class _FilterButtonState extends State<FilterButton> {
             isSelected = !isSelected;
           });
         },
-        child: Text(
-          widget.text,
-          style: kFilterTextStyle,
+        child: Center(
+          child: Text(
+            widget.text,
+            style: kFilterTextStyle,
+          ),
         ),
         textColor: isSelected ? Colors.black : kTextColor,
         color: isSelected ? kShadowColor : Colors.black,
