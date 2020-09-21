@@ -13,7 +13,7 @@ class _FilterButtonState extends State<FilterButton> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(7.0),
+      padding: EdgeInsets.all(5.0),
       child: FlatButton(
         onPressed: () {
           setState(() {
@@ -28,6 +28,12 @@ class _FilterButtonState extends State<FilterButton> {
         ),
         textColor: isSelected ? Colors.black : kTextColor,
         color: isSelected ? kShadowColor : Colors.black,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(8),
+          ),
+
+        ),
       ),
     );
   }

@@ -65,9 +65,13 @@ flutter:
     - family: Rajdhani
       fonts:
         - asset: fonts/Rajdhani-Medium.ttf
-    - family: Orbitron
+    - family: Teko
       fonts:
-        - asset: fonts/Orbitron-Regular.ttf
+        - asset: fonts/Teko-Light.ttf
+    - family: RobotoSlab
+      fonts:
+        - asset: fonts/RobotoSlab-Regular.ttf
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

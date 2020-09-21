@@ -4,8 +4,9 @@ import 'package:events_page/constants.dart';
 class EventsButton extends StatefulWidget {
   final String eventName;
   final String eventCategory;
+  final BoxDecoration eventTileStyle;
 
-  EventsButton({this.eventName, this.eventCategory});
+  EventsButton({this.eventName, this.eventCategory, this.eventTileStyle});
   @override
   _EventsButtonState createState() => _EventsButtonState();
 }
@@ -14,9 +15,9 @@ class _EventsButtonState extends State<EventsButton> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(left: 20, right: 20, bottom: 7, top: 7),
+      padding: EdgeInsets.symmetric(vertical: 15),
       child: Container(
-        decoration: kEventContainerStyle,
+        decoration: widget.eventTileStyle,
         padding: EdgeInsets.symmetric(horizontal: 20),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -24,7 +25,8 @@ class _EventsButtonState extends State<EventsButton> {
           children: <Widget>[
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 25),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -51,10 +53,6 @@ class _EventsButtonState extends State<EventsButton> {
             // SizedBox(
             //   width: 20,
             // ),
-            Icon(
-              Icons.info,
-              color: kElementColor,
-            ),
           ],
         ),
       ),
