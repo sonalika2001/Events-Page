@@ -29,6 +29,26 @@ const kElementColor = Color(0xff0FAB9B);
 
 const kradius = Radius.circular(45);
 
+var kleftswipebackground = BoxDecoration(
+  gradient: LinearGradient(
+    colors: [
+      kShadowColor,
+      kElementColor,
+      kDarkThemeBackground,
+    ],
+  ),
+);
+
+var krightswipebackground = BoxDecoration(
+  gradient: LinearGradient(
+    colors: [
+      kDarkThemeBackground,
+      kElementColor,
+      kShadowColor,
+    ],
+  ),
+);
+
 BoxDecoration eventTileStyle(int index) {
   return BoxDecoration(
     color: kDarkThemeContrast2,

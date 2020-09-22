@@ -5,6 +5,7 @@ import 'constants.dart';
 
 class EventsScreen extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -12,6 +13,8 @@ class EventsScreen extends StatelessWidget {
       backgroundColor: kDarkThemeBackground,
       body: EventsList(),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+
         elevation: 100,
         shadowColor: kShadowColor,
         toolbarHeight: 0.09 * MediaQuery.of(context).size.height,
@@ -31,7 +34,10 @@ class EventsScreen extends StatelessWidget {
           ),
           Expanded(child: FiltersList()),
         ],
+        
       ),
+      
+
     );
   }
 }
