@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'package:events_page/events_screen.dart';
 
@@ -11,6 +12,7 @@ class EventsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: EventsScreen(),
+      theme: ThemeData.dark(),
     );
   }
 }

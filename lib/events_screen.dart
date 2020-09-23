@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:events_page/widgets/events_list.dart';
 import 'package:events_page/widgets/fliters.dart';
 import 'constants.dart';
+import 'package:events_page/widgets/drawers.dart';
 
 class EventsScreen extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -14,14 +17,13 @@ class EventsScreen extends StatelessWidget {
       body: EventsList(),
       appBar: AppBar(
         automaticallyImplyLeading: false,
-
         elevation: 100,
         shadowColor: kShadowColor,
         toolbarHeight: 0.09 * MediaQuery.of(context).size.height,
         backgroundColor: kDarkThemeContrast1,
         actions: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal:15.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
             child: GestureDetector(
               child: Icon(
                 Icons.arrow_back,
@@ -34,10 +36,11 @@ class EventsScreen extends StatelessWidget {
           ),
           Expanded(child: FiltersList()),
         ],
-        
       ),
-      
-
+      drawer: EventDrawer(),
+      drawerEnableOpenDragGesture: false,
+      endDrawer: EventDrawer(),
+      endDrawerEnableOpenDragGesture: false,
     );
   }
 }

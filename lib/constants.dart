@@ -55,14 +55,6 @@ BoxDecoration eventTileStyle(int index) {
     borderRadius: index % 2 != 0
         ? BorderRadius.only(topRight: kradius, bottomRight: kradius)
         : BorderRadius.only(topLeft: kradius, bottomLeft: kradius),
-    boxShadow: [
-      BoxShadow(
-        color: kShadowColor,
-        blurRadius: 4,
-        offset: Offset.fromDirection(
-          3,
-        ),
-      ),
-    ],
+    
   );
 }
