@@ -1,0 +1,44 @@
+{
+  "data": [
+    {
+      "name": "Solo Dance",
+      "category": 12,
+      "delCardType": 56,
+      "longDesc": "abcdefghijklmnopqrstuvwxyz",
+      "shortDesc": "abcdefgh",
+      "minTeamSize": 1,
+      "maxTeamSize": 1,
+      "tags": [
+        "Dance",
+        "Solo"
+      ]
+    },
+    {
+      "name": "Battle of Bands",
+      "category": 10,
+      "delCardType": 84,
+      "longDesc": "abcdefghijklmnopqrstuvwxyz",
+      "shortDesc": "abcdefgh",
+      "minTeamSize": 3,
+      "maxTeamSize": 8,
+      "tags": [
+        "Music",
+        "Group"
+      ]
+    },
+    {
+      "name": "CSGO",
+      "category": 44,
+      "delCardType": 23,
+      "longDesc": "abcdefghijklmnopqrstuvwxyz",
+      "shortDesc": "abcdefgh",
+      "minTeamSize": 1,
+      "maxTeamSize": 5,
+      "tags": [
+        "Gaming",
+        "Solo",
+        "Group"
+      ]
+    }
+  ]
+}

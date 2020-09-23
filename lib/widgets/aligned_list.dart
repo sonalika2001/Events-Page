@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import '../events.dart';
 import 'events_button.dart';
 import 'package:events_page/constants.dart';
 
 class LeftAlignedListTile extends StatelessWidget {
-  LeftAlignedListTile({
-    @required this.i,
-    @required this.width,
-  });
-
+  LeftAlignedListTile(
+      {@required this.i, @required this.width, @required this.data});
+  Data data;
   final int i;
   final width;
 
@@ -17,8 +16,8 @@ class LeftAlignedListTile extends StatelessWidget {
       children: <Widget>[
         Expanded(
             child: EventsButton(
-          eventName: 'Event Name',
-          eventCategory: 'Category',
+          eventName: data.name,
+          eventCategory: data.category.toString(),
           eventTileStyle: eventTileStyle(i),
         )),
         SizedBox(
@@ -30,11 +29,9 @@ class LeftAlignedListTile extends StatelessWidget {
 }
 
 class RightAlignedListTile extends StatelessWidget {
-  RightAlignedListTile({
-    @required this.i,
-    @required this.width,
-  });
-
+  RightAlignedListTile(
+      {@required this.i, @required this.width, @required this.data});
+  Data data;
   final int i;
   final width;
 
@@ -47,8 +44,8 @@ class RightAlignedListTile extends StatelessWidget {
         ),
         Expanded(
             child: EventsButton(
-          eventName: 'Event Name',
-          eventCategory: 'Category',
+          eventName: data.name,
+          eventCategory: data.category.toString(),
           eventTileStyle: eventTileStyle(i),
         )),
       ],

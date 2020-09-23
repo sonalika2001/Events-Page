@@ -1,5 +1,9 @@
+import 'dart:convert';
+
+import 'package:events_page/FilterList.dart';
 import 'package:flutter/material.dart';
 
+import '../events.dart';
 import 'slidable_list.dart';
 
 class EventsList extends StatefulWidget {
@@ -10,14 +14,38 @@ class EventsList extends StatefulWidget {
 }
 
 class _EventsListState extends State<EventsList> {
+  bool loading = true;
+  Future<void> _loadFromAsset(BuildContext context) async {
+    String data =
+        await DefaultAssetBundle.of(context).loadString("assets/events.json");
+    Events events = Events.fromJson(json.decode(data));
+    setState(() {
+      FilterList.getData = events.data;
+      loading = false;
+    });
+  }
+
+  @override
+  void initState() {
+    _loadFromAsset(context);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: alignedEventList(
-        MediaQuery.of(context).size.width,
-        widget.swipeKey,
-        context,
-      ),
-    );
+    _loadFromAsset(context);
+    return loading
+        ? Container()
+        : ListView.builder(
+            itemCount: FilterList.getUpdatedData().length,
+            itemBuilder: (BuildContext context, int index) {
+              return alignedEventList(
+                  MediaQuery.of(context).size.width,
+                  widget.swipeKey,
+                  context,
+                  index,
+                  FilterList.getUpdatedData()[index]);
+            },
+          );
   }
 }

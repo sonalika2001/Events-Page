@@ -1,3 +1,4 @@
+import 'package:events_page/FilterList.dart';
 import 'package:flutter/material.dart';
 import 'package:events_page/constants.dart';
 
@@ -18,6 +19,13 @@ class _FilterButtonState extends State<FilterButton> {
         onPressed: () {
           setState(() {
             isSelected = !isSelected;
+            if (!FilterList.tagsSelected.contains(widget.text)) {
+              print("selected");
+              FilterList.tagsSelected.add(widget.text);
+            } else {
+              print("deselected");
+              FilterList.tagsSelected.remove(widget.text);
+            }
           });
         },
         child: Center(
@@ -32,7 +40,6 @@ class _FilterButtonState extends State<FilterButton> {
           borderRadius: BorderRadius.all(
             Radius.circular(8),
           ),
-
         ),
       ),
     );
