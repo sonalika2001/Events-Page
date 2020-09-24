@@ -4,7 +4,9 @@ import 'package:events_page/constants.dart';
 
 class FilterButton extends StatefulWidget {
   final String text;
-  FilterButton(this.text);
+  final IconData icon;
+  FilterButton(this.text, this.icon);
+
   @override
   _FilterButtonState createState() => _FilterButtonState();
 }
@@ -28,19 +30,31 @@ class _FilterButtonState extends State<FilterButton> {
             }
           });
         },
-        child: Center(
-          child: Text(
-            widget.text,
-            style: kFilterTextStyle,
-          ),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircleAvatar(
+                child: Icon(
+                  widget.icon,
+                  color: isSelected ? Colors.white : Colors.black,
+                ),
+                backgroundColor: isSelected ? Colors.black : Colors.white,
+              ),
+            ),
+            Text(
+              widget.text,
+              style: kFilterTextStyle,
+            ),
+          ],
         ),
         textColor: isSelected ? Colors.black : kTextColor,
         color: isSelected ? kShadowColor : Colors.black,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(8),
-          ),
-        ),
+        // shape: RoundedRectangleBorder(
+        //   borderRadius: BorderRadius.all(
+        //     Radius.circular(8),
+        //   ),
+        // ),
       ),
     );
   }

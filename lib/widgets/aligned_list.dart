@@ -6,7 +6,7 @@ import 'package:events_page/constants.dart';
 class LeftAlignedListTile extends StatelessWidget {
   LeftAlignedListTile(
       {@required this.i, @required this.width, @required this.data});
-  Data data;
+  final Data data;
   final int i;
   final width;
 
@@ -31,7 +31,7 @@ class LeftAlignedListTile extends StatelessWidget {
 class RightAlignedListTile extends StatelessWidget {
   RightAlignedListTile(
       {@required this.i, @required this.width, @required this.data});
-  Data data;
+  final Data data;
   final int i;
   final width;
 

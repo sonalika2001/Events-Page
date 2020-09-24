@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../events.dart';
 import 'slidable_list.dart';
+import 'filters.dart';
 
 class EventsList extends StatefulWidget {
   final Key swipeKey = Key('swipeKey');
@@ -36,16 +37,23 @@ class _EventsListState extends State<EventsList> {
     _loadFromAsset(context);
     return loading
         ? Container()
-        : ListView.builder(
-            itemCount: FilterList.getUpdatedData().length,
-            itemBuilder: (BuildContext context, int index) {
-              return alignedEventList(
-                  MediaQuery.of(context).size.width,
-                  widget.swipeKey,
-                  context,
-                  index,
-                  FilterList.getUpdatedData()[index]);
-            },
-          );
+        : Column(
+          children: [
+            Expanded(child: FiltersList(),flex: 1,),
+            Expanded(flex: 4,
+                          child: ListView.builder(
+                  itemCount: FilterList.getUpdatedData().length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return alignedEventList(
+                        MediaQuery.of(context).size.width,
+                        widget.swipeKey,
+                        context,
+                        index,
+                        FilterList.getUpdatedData()[index]);
+                  },
+                ),
+            ),
+          ],
+        );
   }
 }
