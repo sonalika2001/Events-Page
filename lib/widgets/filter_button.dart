@@ -50,11 +50,11 @@ class _FilterButtonState extends State<FilterButton> {
         ),
         textColor: isSelected ? Colors.black : kTextColor,
         color: isSelected ? kShadowColor : Colors.black,
-        // shape: RoundedRectangleBorder(
-        //   borderRadius: BorderRadius.all(
-        //     Radius.circular(8),
-        //   ),
-        // ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(20),
+          ),
+        ),
       ),
     );
   }
