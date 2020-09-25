@@ -9,6 +9,9 @@ import 'filters.dart';
 
 class EventsList extends StatefulWidget {
   final Key swipeKey = Key('swipeKey');
+  GlobalKey<ScaffoldState> scaffoldKey;
+
+  EventsList(this.scaffoldKey);
 
   @override
   _EventsListState createState() => _EventsListState();
@@ -34,26 +37,30 @@ class _EventsListState extends State<EventsList> {
 
   @override
   Widget build(BuildContext context) {
-    _loadFromAsset(context);
+    // _loadFromAsset(context);
     return loading
         ? Container()
         : Column(
-          children: [
-            Expanded(child: FiltersList(),flex: 1,),
-            Expanded(flex: 4,
-                          child: ListView.builder(
+            children: [
+              Expanded(
+                child: FiltersList(),
+                flex: 1,
+              ),
+              Expanded(
+                flex: 4,
+                child: ListView.builder(
                   itemCount: FilterList.getUpdatedData().length,
                   itemBuilder: (BuildContext context, int index) {
                     return alignedEventList(
+                        index,
                         MediaQuery.of(context).size.width,
                         widget.swipeKey,
-                        context,
-                        index,
-                        FilterList.getUpdatedData()[index]);
+                        FilterList.getUpdatedData()[index],
+                        widget.scaffoldKey);
                   },
                 ),
-            ),
-          ],
-        );
+              ),
+            ],
+          );
   }
 }

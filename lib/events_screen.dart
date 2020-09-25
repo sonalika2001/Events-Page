@@ -12,11 +12,9 @@ class EventsScreen extends StatelessWidget {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: kDarkThemeBackground,
-      body: EventsList(),
+      body: EventsList(scaffoldKey),
       appBar: AppBar(
-        
         automaticallyImplyLeading: false,
-        
         elevation: 100,
         shadowColor: kShadowColor,
         toolbarHeight: 0.09 * MediaQuery.of(context).size.height,

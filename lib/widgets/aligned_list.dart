@@ -3,25 +3,29 @@ import '../events.dart';
 import 'events_button.dart';
 import 'package:events_page/constants.dart';
 
-class LeftAlignedListTile extends StatelessWidget {
-  LeftAlignedListTile(
-      {@required this.i, @required this.width, @required this.data});
+class LeftAlignedListTile extends StatefulWidget {
+  LeftAlignedListTile({@required this.i, this.width, @required this.data});
   final Data data;
   final int i;
-  final width;
+  double width;
 
+  @override
+  _LeftAlignedListTileState createState() => _LeftAlignedListTileState();
+}
+
+class _LeftAlignedListTileState extends State<LeftAlignedListTile> {
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
         Expanded(
             child: EventsButton(
-          eventName: data.name,
-          eventCategory: data.category.toString(),
-          eventTileStyle: eventTileStyle(i),
+          eventName: widget.data.name,
+          eventCategory: widget.data.category.toString(),
+          eventTileStyle: eventTileStyle(widget.i),
         )),
         SizedBox(
-          width: 0.2 * width,
+          width: 0.2 * widget.width,
         ),
       ],
     );
