@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:events_page/widgets/events_list.dart';
-import 'package:events_page/widgets/filters.dart';
+
 import 'constants.dart';
 import 'package:events_page/widgets/drawers.dart';
 

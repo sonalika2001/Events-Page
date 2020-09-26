@@ -5,8 +5,10 @@ class EventsButton extends StatefulWidget {
   final String eventName;
   final String eventCategory;
   final BoxDecoration eventTileStyle;
+  final bool align; //false for left, true for right
 
-  EventsButton({this.eventName, this.eventCategory, this.eventTileStyle});
+  EventsButton(
+      {this.eventName, this.eventCategory, this.eventTileStyle, this.align});
   @override
   _EventsButtonState createState() => _EventsButtonState();
 }
@@ -23,6 +25,10 @@ class _EventsButtonState extends State<EventsButton> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            Icon(
+              widget.align == true ? Icons.arrow_back_ios : null,
+              color: Colors.white,
+            ),
             Expanded(
               child: Padding(
                 padding:
@@ -50,9 +56,10 @@ class _EventsButtonState extends State<EventsButton> {
                 ),
               ),
             ),
-            // SizedBox(
-            //   width: 20,
-            // ),
+            Icon(
+              widget.align == false ? Icons.arrow_forward_ios : null,
+              color: Colors.white,
+            ),
           ],
         ),
       ),

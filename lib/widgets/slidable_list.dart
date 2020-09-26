@@ -1,24 +1,23 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:events_page/constants.dart';
 import '../events.dart';
 import 'aligned_list.dart';
 
-class alignedEventList extends StatefulWidget {
+class AlignedEventList extends StatefulWidget {
   int index;
   double width;
   Key swipeKey;
   GlobalKey<ScaffoldState> scaffoldKey;
-  alignedEventList(
+  AlignedEventList(
       this.index, this.width, this.swipeKey, this.data, this.scaffoldKey);
 
   Data data;
   @override
-  _alignedEventListState createState() => _alignedEventListState();
+  _AlignedEventListState createState() => _AlignedEventListState();
 }
 
-class _alignedEventListState extends State<alignedEventList> {
+class _AlignedEventListState extends State<AlignedEventList> {
   @override
   Widget build(BuildContext context) {
     if (widget.index % 2 != 0) {

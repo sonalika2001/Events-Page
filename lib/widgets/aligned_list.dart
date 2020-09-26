@@ -7,7 +7,7 @@ class LeftAlignedListTile extends StatefulWidget {
   LeftAlignedListTile({@required this.i, this.width, @required this.data});
   final Data data;
   final int i;
-  double width;
+  final double width;
 
   @override
   _LeftAlignedListTileState createState() => _LeftAlignedListTileState();
@@ -23,6 +23,7 @@ class _LeftAlignedListTileState extends State<LeftAlignedListTile> {
           eventName: widget.data.name,
           eventCategory: widget.data.category.toString(),
           eventTileStyle: eventTileStyle(widget.i),
+          align: false,
         )),
         SizedBox(
           width: 0.2 * widget.width,
@@ -51,6 +52,7 @@ class RightAlignedListTile extends StatelessWidget {
           eventName: data.name,
           eventCategory: data.category.toString(),
           eventTileStyle: eventTileStyle(i),
+          align: true,
         )),
       ],
     );

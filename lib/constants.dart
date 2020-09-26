@@ -27,6 +27,9 @@ const kDarkThemeContrast1 = Color(0xff2D2D2D);
 const kDarkThemeContrast2 = Color(0xff1E1E1E);
 const kElementColor = Color(0xff0FAB9B);
 
+const kPrimaryThemeColor = Color(0xff4635a7);
+const kAccentThemeColor =Color(0xffb659b2);
+
 const kradius = Radius.circular(45);
 
 var kleftswipebackground = BoxDecoration(
