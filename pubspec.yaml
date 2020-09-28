@@ -71,6 +71,9 @@ flutter:
     - family: RobotoSlab
       fonts:
         - asset: fonts/RobotoSlab-Regular.ttf
+    - family: Cabin
+      fonts:
+        - asset: fonts/Cabin-Regular.ttf
 
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
