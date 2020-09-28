@@ -1,8 +1,5 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:events_page/events_screen.dart';
-
 
 void main() {
   runApp(EventsPage());
@@ -14,6 +11,7 @@ class EventsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: EventsScreen(),
       theme: ThemeData.dark(),
     );
