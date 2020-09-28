@@ -15,47 +15,46 @@ class _FilterButtonState extends State<FilterButton> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(5.0),
-      child: FlatButton(
-        onPressed: () {
-          setState(() {
-            isSelected = !isSelected;
-            if (!FilterList.tagsSelected.contains(widget.text)) {
-              print("selected");
-              FilterList.tagsSelected.add(widget.text);
-            } else {
-              print("deselected");
-              FilterList.tagsSelected.remove(widget.text);
-            }
-          });
-        },
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CircleAvatar(
+    return Column(
+      children: [
+        Padding(
+          padding: EdgeInsets.only(top: 10),
+          child: FlatButton(
+            shape: CircleBorder(),
+            onPressed: () {
+              setState(() {
+                isSelected = !isSelected;
+                if (!FilterList.tagsSelected.contains(widget.text)) {
+                  print("selected");
+                  FilterList.tagsSelected.add(widget.text);
+                } else {
+                  print("deselected");
+                  FilterList.tagsSelected.remove(widget.text);
+                }
+              });
+            },
+            child: CircleAvatar(
+              radius: 30,
+              backgroundColor:
+                  isSelected ? Color(0x99ffffff) : Color(0x10ffffff),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Icon(
                   widget.icon,
-                  color: isSelected ? Colors.white : Colors.black,
+                  color: isSelected ? Colors.black : Colors.white,
                 ),
-                backgroundColor: isSelected ? Colors.black : Colors.white,
               ),
             ),
-            Text(
-              widget.text,
-              style: kFilterTextStyle,
-            ),
-          ],
-        ),
-        textColor: isSelected ? Colors.black : kTextColor,
-        color: isSelected ? kShadowColor : Colors.black,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(20),
           ),
         ),
-      ),
+        Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: Text(
+            widget.text,
+            style: TextStyle(fontSize: 10, fontFamily: 'Cabin'),
+          ),
+        ),
+      ],
     );
   }
 }
