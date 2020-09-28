@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 const kFilterTextStyle = TextStyle(
   fontSize: 15,
-  fontFamily: 'RobotoSlab',
-  fontWeight: FontWeight.w400,
 );
 
 const kEventTextStyle = TextStyle(
@@ -28,7 +26,7 @@ const kDarkThemeContrast2 = Color(0xff1E1E1E);
 const kElementColor = Color(0xff0FAB9B);
 
 const kPrimaryThemeColor = Color(0xff4635a7);
-const kAccentThemeColor =Color(0xffb659b2);
+const kAccentThemeColor = Color(0xffb659b2);
 
 const kradius = Radius.circular(45);
 
@@ -54,10 +52,21 @@ var krightswipebackground = BoxDecoration(
 
 BoxDecoration eventTileStyle(int index) {
   return BoxDecoration(
-    color: kDarkThemeContrast2,
+    gradient: LinearGradient(
+      begin: index % 2 == 0 ? Alignment.topLeft : Alignment.topRight,
+      end: index % 2 == 0 ? Alignment(1.5, 2) : Alignment(-1.5, -2),
+      colors: [
+        // const Color(0xaab659b2),
+        // const Color(0x99000000),
+        const Color(0x444635a7),
+
+        const Color(0x99000000),
+
+        // const Color(0xffb659b2)
+      ],
+    ),
     borderRadius: index % 2 != 0
         ? BorderRadius.only(topRight: kradius, bottomRight: kradius)
         : BorderRadius.only(topLeft: kradius, bottomLeft: kradius),
-    
   );
 }
