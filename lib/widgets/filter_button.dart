@@ -36,12 +36,12 @@ class _FilterButtonState extends State<FilterButton> {
             child: CircleAvatar(
               radius: 30,
               backgroundColor:
-                  isSelected ? Color(0x99ffffff) : Color(0x10ffffff),
+                  isSelected ? const Color(0x40ffffff) : Color(0x10ffffff),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Icon(
                   widget.icon,
-                  color: isSelected ? Colors.black : Colors.white,
+                  color: Colors.white,
                 ),
               ),
             ),

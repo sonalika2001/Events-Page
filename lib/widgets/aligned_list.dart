@@ -26,7 +26,7 @@ class _LeftAlignedListTileState extends State<LeftAlignedListTile> {
           align: false,
         )),
         SizedBox(
-          width: 0.15 * widget.width,
+          width: 0.2 * widget.width,
         ),
       ],
     );
@@ -45,7 +45,7 @@ class RightAlignedListTile extends StatelessWidget {
     return Row(
       children: <Widget>[
         SizedBox(
-          width: 0.15 * width,
+          width: 0.2 * width,
         ),
         Expanded(
             child: EventsButton(

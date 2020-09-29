@@ -31,7 +31,7 @@ class _EventsButtonState extends State<EventsButton> {
                       child: Icon(
                         Icons.arrow_back_ios,
                         color: Colors.white30,
-                        size: 30,
+                        size: 25,
                       ),
                     )
                   : SizedBox.shrink(),
@@ -59,7 +59,7 @@ class _EventsButtonState extends State<EventsButton> {
                       child: Icon(
                         Icons.arrow_forward_ios,
                         color: Colors.white30,
-                        size: 30,
+                        size: 25,
                       ),
                     )
             ],
