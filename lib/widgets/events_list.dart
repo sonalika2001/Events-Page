@@ -43,17 +43,21 @@ class _EventsListState extends State<EventsList> {
         : Column(
             children: [
               Expanded(
+                flex: 2,
                 child: FiltersList(),
               ),
-              Divider(
-                color: Colors.white10,
-                height: 40,
-                thickness: 1,
-                // indent: 0.1 * MediaQuery.of(context).size.width,
-                // endIndent: 0.08 * MediaQuery.of(context).size.width,
+              Expanded(
+                flex: 1,
+                child: Divider(
+                  color: Colors.white10,
+                  height: 40,
+                  thickness: 1,
+                  // indent: 0.1 * MediaQuery.of(context).size.width,
+                  // endIndent: 0.08 * MediaQuery.of(context).size.width,
+                ),
               ),
               Expanded(
-                flex: 6,
+                flex: 10,
                 child: ListView.builder(
                   itemCount: FilterList.getUpdatedData().length,
                   itemBuilder: (BuildContext context, int index) {
@@ -61,8 +65,7 @@ class _EventsListState extends State<EventsList> {
                         index,
                         MediaQuery.of(context).size.width,
                         widget.swipeKey,
-                        FilterList.getUpdatedData()[index],
-                        widget.scaffoldKey);
+                        FilterList.getUpdatedData()[index]);
                   },
                 ),
               ),
