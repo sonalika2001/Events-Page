@@ -5,16 +5,16 @@ const kFilterTextStyle = TextStyle(
 );
 
 const kEventTextStyle = TextStyle(
-  fontFamily: 'Acme',
-  color: kTextColor,
-  fontSize: 20,
-  fontWeight: FontWeight.w500,
+  fontFamily: 'Cabin',
+  // color: Colors.white,
+  fontSize: 25,
+  // fontWeight: FontWeight.w500,
 );
 
 const kCategoryTextStyle = TextStyle(
-  color: kDarkTextColor,
-  fontSize: 16,
-  fontFamily: 'Rajdhani',
+  fontFamily: 'Cabin',
+  // color: Colors.white,
+  fontSize: 15,
 );
 
 const kShadowColor = Color(0xff0FAB9B);
@@ -59,9 +59,7 @@ BoxDecoration eventTileStyle(int index) {
         // const Color(0xaab659b2),
         // const Color(0x99000000),
         const Color(0x444635a7),
-
         const Color(0x99000000),
-
         // const Color(0xffb659b2)
       ],
     ),
