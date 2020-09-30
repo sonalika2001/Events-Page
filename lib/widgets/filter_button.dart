@@ -5,7 +5,8 @@ import 'package:events_page/constants.dart';
 class FilterButton extends StatefulWidget {
   final String text;
   final IconData icon;
-  FilterButton(this.text, this.icon);
+  final Function(String) onTap;
+  FilterButton(this.text, this.icon, this.onTap);
 
   @override
   _FilterButtonState createState() => _FilterButtonState();
@@ -24,13 +25,7 @@ class _FilterButtonState extends State<FilterButton> {
             onPressed: () {
               setState(() {
                 isSelected = !isSelected;
-                if (!FilterList.tagsSelected.contains(widget.text)) {
-                  print("selected");
-                  FilterList.tagsSelected.add(widget.text);
-                } else {
-                  print("deselected");
-                  FilterList.tagsSelected.remove(widget.text);
-                }
+                widget.onTap(widget.text);
               });
             },
             child: CircleAvatar(

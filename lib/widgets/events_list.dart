@@ -19,12 +19,14 @@ class EventsList extends StatefulWidget {
 
 class _EventsListState extends State<EventsList> {
   bool loading = true;
+  List<Data> _data;
   Future<void> _loadFromAsset(BuildContext context) async {
     String data =
         await DefaultAssetBundle.of(context).loadString("assets/events.json");
     Events events = Events.fromJson(json.decode(data));
     setState(() {
       FilterList.getData = events.data;
+      _data = FilterList.getUpdatedData();
       loading = false;
     });
   }
@@ -35,16 +37,28 @@ class _EventsListState extends State<EventsList> {
     super.initState();
   }
 
+  void updatetags(String tag) {
+    if (!FilterList.tagsSelected.contains(tag)) {
+      FilterList.tagsSelected.add(tag);
+    } else {
+      FilterList.tagsSelected.remove(tag);
+    }
+    setState(() {
+      _data = FilterList.getUpdatedData();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    // _loadFromAsset(context);
     return loading
         ? Container()
         : Column(
             children: [
               Expanded(
                 flex: 2,
-                child: FiltersList(),
+                child: FiltersList(
+                  onTap: updatetags,
+                ),
               ),
               Expanded(
                 flex: 1,
@@ -59,13 +73,13 @@ class _EventsListState extends State<EventsList> {
               Expanded(
                 flex: 10,
                 child: ListView.builder(
-                  itemCount: FilterList.getUpdatedData().length,
+                  itemCount: _data.length,
                   itemBuilder: (BuildContext context, int index) {
                     return AlignedEventList(
                         index,
                         MediaQuery.of(context).size.width,
                         widget.swipeKey,
-                        FilterList.getUpdatedData()[index]);
+                        _data[index]);
                   },
                 ),
               ),

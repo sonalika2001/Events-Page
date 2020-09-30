@@ -4,8 +4,9 @@ class FilterList {
   static List<String> tagsSelected = [];
   static List<Data> listData = [];
   static List<Data> getData = [];
+
   static List<Data> getUpdatedData() {
-    if (tagsSelected.length == 0) {
+    if (tagsSelected.length == 0 || tagsSelected.contains("All")) {
       return getData;
     } else {
       Data _data;
