@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:events_page/widgets/events_list.dart';
+import 'package:events_page/widgets/events_layout/events_list.dart';
 
 import 'constants.dart';
-import 'package:events_page/widgets/drawers.dart';
+import 'package:events_page/widgets/events_desc/drawers.dart';
 
 class EventsScreen extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();
