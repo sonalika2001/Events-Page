@@ -7,7 +7,14 @@ const kFilterTextStyle = TextStyle(
 const kEventTextStyle = TextStyle(
   fontFamily: 'Cabin',
   // color: Colors.white,
-  fontSize: 25,
+  fontSize: 30,
+  // fontWeight: FontWeight.w500,
+);
+
+const kInfoTextStyle = TextStyle(
+  fontFamily: 'Cabin',
+  // color: Colors.white,
+  fontSize: 20,
   // fontWeight: FontWeight.w500,
 );
 
@@ -68,3 +75,39 @@ BoxDecoration eventTileStyle(int index) {
         : BorderRadius.only(topLeft: kradius, bottomLeft: kradius),
   );
 }
+
+const a = Color(0xffDDD5E2);
+const b = Color(0xffCFBEE0);
+const c = Color(0xffBC9EDA);
+const d = Color(0xffAA7BD9);
+const e = Color(0xff9C63D8);
+
+const f = Color(0xff7123AD);
+const g = Color(0xff5019B1);
+const h = Color(0xffC442B6);
+const i = Color(0xffF1C0DD);
+const j = Color(0xffAF9EC9);
+
+const k = Color(0xffDA71CE);
+
+BoxDecoration eventDesc = BoxDecoration(
+  borderRadius: BorderRadius.circular(10),
+  // border: Border.all(width: 2, color: d, style: BorderStyle.solid),
+  gradient: LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [b, c, d, e],
+  ),
+);
+
+BoxDecoration eventDesc2 = BoxDecoration(
+  borderRadius: BorderRadius.circular(10),
+  gradient: LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [
+      const Color(0x444635a7),
+      const Color(0x99000000),
+    ],
+  ),
+);
