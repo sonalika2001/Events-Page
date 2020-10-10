@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:events_page/FilterList.dart';
+import 'package:events_page/category.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 import '../../events.dart';
 import '../events_desc/slidable_list.dart';
@@ -20,13 +22,18 @@ class EventsList extends StatefulWidget {
 class _EventsListState extends State<EventsList> {
   bool loading = true;
   List<Data> _data;
+  List<Data1> _data1;
   Future<void> _loadFromAsset(BuildContext context) async {
-    String data =
-        await DefaultAssetBundle.of(context).loadString("assets/events.json");
-    Events events = Events.fromJson(json.decode(data));
+    // String data =
+    //     await DefaultAssetBundle.of(context).loadString("assets/events.json");
+    var data = await http.get("https://techtatvadata.herokuapp.com/events");
+    Events events = Events.fromJson(json.decode(data.body));
+    var data1 = await http.get("https://techtatvadata.herokuapp.com/category");
+    Category category = Category.fromJson(json.decode(data1.body));
     setState(() {
       FilterList.getData = events.data;
       _data = FilterList.getUpdatedData();
+      _data1 = category.data;
       loading = false;
     });
   }
@@ -106,7 +113,8 @@ class _EventsListState extends State<EventsList> {
                           index,
                           MediaQuery.of(context).size.width,
                           widget.swipeKey,
-                          _data[index]);
+                          _data[index],
+                          _data1);
                     },
                   ),
                 ),

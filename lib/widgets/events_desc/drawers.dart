@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:events_page/constants.dart';
 
-class EventDrawer extends StatelessWidget {
+import '../../category.dart';
+import '../../events.dart';
+
+class EventDrawer extends StatefulWidget {
+  static Data data1;
+  static Data1 data2;
+  @override
+  _EventDrawerState createState() => _EventDrawerState();
+}
+
+class _EventDrawerState extends State<EventDrawer> {
   @override
   Widget build(BuildContext context) {
+    print(2);
     return Container(
       width: MediaQuery.of(context).size.width * 0.85,
       child: Drawer(
@@ -22,7 +33,7 @@ class EventDrawer extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(top: 10.0),
                             child: Text(
-                              'Event Name',
+                              EventDrawer.data1.name,
                               style: kEventTextStyle,
                             ),
                           ),
@@ -30,7 +41,7 @@ class EventDrawer extends StatelessWidget {
                             height: 15,
                           ),
                           Text(
-                            'Event Category',
+                            EventDrawer.data2.name,
                             style: kCategoryTextStyle,
                           ),
                         ],
@@ -55,7 +66,7 @@ class EventDrawer extends StatelessWidget {
                                     color: Colors.white),
                               ),
                               Text(
-                                "( General )",
+                                "( ${EventDrawer.data1.delCardType} )",
                                 style: TextStyle(
                                     fontSize: 17, color: Colors.white),
                               ),
@@ -77,7 +88,7 @@ class EventDrawer extends StatelessWidget {
                                         style: BorderStyle.solid)),
                                 child: Center(
                                   child: Text(
-                                    "1 - 4",
+                                    "${EventDrawer.data1.minTeamSize.toString()} - ${EventDrawer.data1.maxTeamSize.toString()}",
                                     style: TextStyle(
                                         fontSize: 18,
                                         color: Colors.white,
@@ -156,7 +167,8 @@ class EventDrawer extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.all(8),
                               child: Text(
-                                "He my polite be object oh change. Consider no mr am overcame yourself throwing sociable children. Hastily her totally conduct may. My solid by stuff first smile fanny. Humoured how advanced mrs elegance sir who. Home sons when them dine do want to. Estimating themselves unsatiable imprudence an he at an. Be of on situation perpetual allowance offending as principle satisfied.   ",
+                                //"He my polite be object oh change. Consider no mr am overcame yourself throwing sociable children. Hastily her totally conduct may. My solid by stuff first smile fanny. Humoured how advanced mrs elegance sir who. Home sons when them dine do want to. Estimating themselves unsatiable imprudence an he at an. Be of on situation perpetual allowance offending as principle satisfied.   ",
+                                EventDrawer.data2.description,
                                 style: TextStyle(
                                     fontSize: 13, fontWeight: FontWeight.w300),
                                 textAlign: TextAlign.center,

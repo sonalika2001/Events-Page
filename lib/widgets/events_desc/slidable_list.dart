@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:events_page/category.dart';
+import 'package:events_page/widgets/events_desc/drawers.dart';
 import 'package:flutter/material.dart';
 import '../../events.dart';
 import '../events_layout/aligned_list.dart';
@@ -8,8 +10,9 @@ class AlignedEventList extends StatefulWidget {
   int index;
   double width;
   Key swipeKey;
-  AlignedEventList(this.index, this.width, this.swipeKey, this.data);
-
+  AlignedEventList(
+      this.index, this.width, this.swipeKey, this.data, this.data1);
+  List<Data1> data1;
   Data data;
   @override
   _AlignedEventListState createState() => _AlignedEventListState();
@@ -19,6 +22,15 @@ class _AlignedEventListState extends State<AlignedEventList> {
   @override
   void initState() {
     super.initState();
+  }
+
+  Future<Data1> getCategory(int id) async {
+    id = 1; //comment this line for actual use. Only here for testing
+    for (int i = 0; i < widget.data1.length; i++) {
+      if (widget.data1[i].id == id) {
+        return widget.data1[i];
+      }
+    }
   }
 
   @override
@@ -46,10 +58,13 @@ class _AlignedEventListState extends State<AlignedEventList> {
       onHorizontalDragEnd: (details) async {
         print('${details.primaryVelocity},${widget.index}');
         await Future.delayed(Duration(milliseconds: 30));
+        EventDrawer.data1 = widget.data;
+        EventDrawer.data2 = await getCategory(widget.data.category);
         if (details.primaryVelocity < 0 && widget.index % 2 == 0)
           Scaffold.of(context).openEndDrawer();
         else if (details.primaryVelocity > 0 && widget.index % 2 != 0)
           Scaffold.of(context).openDrawer();
+
         Timer.periodic(Duration(milliseconds: 1), (time) {
           if (mounted)
             setState(() {
