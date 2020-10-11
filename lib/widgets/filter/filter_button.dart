@@ -12,7 +12,8 @@ class FilterButton extends StatefulWidget {
   _FilterButtonState createState() => _FilterButtonState();
 }
 
-class _FilterButtonState extends State<FilterButton> {
+class _FilterButtonState extends State<FilterButton>
+    with AutomaticKeepAliveClientMixin {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
@@ -52,4 +53,8 @@ class _FilterButtonState extends State<FilterButton> {
       ],
     );
   }
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
 }

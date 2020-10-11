@@ -4,6 +4,7 @@ import 'package:events_page/category.dart';
 import 'package:events_page/widgets/events_desc/drawers.dart';
 import 'package:flutter/material.dart';
 import '../../events.dart';
+import '../../main.dart';
 import '../events_layout/aligned_list.dart';
 
 class AlignedEventList extends StatefulWidget {
@@ -24,14 +25,14 @@ class _AlignedEventListState extends State<AlignedEventList> {
     super.initState();
   }
 
-  Future<Data1> getCategory(int id) async {
-    id = 1; //comment this line for actual use. Only here for testing
-    for (int i = 0; i < widget.data1.length; i++) {
-      if (widget.data1[i].id == id) {
-        return widget.data1[i];
-      }
-    }
-  }
+  // Future<Data1> getCategory(int id) async {
+  //   id = 1; //comment this line for actual use. Only here for testing
+  //   for (int i = 0; i < widget.data1.length; i++) {
+  //     if (widget.data1[i].id == id) {
+  //       return widget.data1[i];
+  //     }
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +60,9 @@ class _AlignedEventListState extends State<AlignedEventList> {
         print('${details.primaryVelocity},${widget.index}');
         await Future.delayed(Duration(milliseconds: 30));
         EventDrawer.data1 = widget.data;
-        EventDrawer.data2 = await getCategory(widget.data.category);
+        // EventDrawer.data2 = await getCategory(widget.data.category);
+        EventDrawer.data2 =
+            Data1.fromJson(categories[widget.data.category] ?? categories[1]);
         if (details.primaryVelocity < 0 && widget.index % 2 == 0)
           Scaffold.of(context).openEndDrawer();
         else if (details.primaryVelocity > 0 && widget.index % 2 != 0)
